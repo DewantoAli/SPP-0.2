@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbyDIvkwAdyZaYkrCZzTrRkwRhlRrjwFpwPmlp5-2EDtQuIZMS7IhYlgQC4O5imWazqU/exec";
+  "https://script.google.com/macros/s/AKfycbxjC_ptZXW5PUeMZ8mbvPkQobEQzDrLEr4UgkW77UpmjTzBgs9qhPpR_It4BLUfdLmZ/exec";
 
 export default function PaymentList() {
   const [payments, setPayments] = useState([]);
