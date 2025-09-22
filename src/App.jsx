@@ -4,6 +4,7 @@ import StudentList from "./components/StudentList";
 import PaymentForm from "./components/PaymentForm";
 import PaymentList from "./components/PaymentList";
 
+
 export default function App() {
   return (
     <div className="max-w-5xl mx-auto p-6 space-y-6">
