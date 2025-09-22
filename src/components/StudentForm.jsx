@@ -1,23 +1,44 @@
 import React, { useState } from "react";
 
-const API_URL = "https://script.google.com/macros/s/AKfycbxdwvTX-HagzdmUHYuDGBZVEQEK99nmvt-9TzpF-aFI0Hqg6eyCkaOw62kQVne6di0/exec";
+const API_URL =
+  "https://script.google.com/macros/s/AKfycbxgCVsrefiW0Dor_bwMSzCdQ8510ZzS2EVCw5F3PDF8EPjiek5OfFN7tfqsEhiz8hh9/exec";
 
 export default function StudentForm() {
-  const [form, setForm] = useState({ nis: "", nama: "", kelas: "" });
+  const [form, setForm] = useState({
+    nis: "",
+    nama: "",
+    kelas: "",
+    alamat: "",
+    telepon: "",
+  });
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "saveStudent", ...form }),
-    });
-    const data = await res.json();
-    alert(data.message);
-    setForm({ nis: "", nama: "", kelas: "" });
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "saveStudent",
+          nis: form.nis,
+          nama: form.nama,
+          kelas: form.kelas,
+          alamat: form.alamat,
+          telepon: form.telepon,
+        }),
+      });
+
+      const data = await res.json();
+      alert(data.message || "Gagal simpan siswa");
+      if (data.status === "success") {
+        setForm({ nis: "", nama: "", kelas: "", alamat: "", telepon: "" });
+      }
+    } catch (err) {
+      alert("Error: " + err.message);
+    }
   };
 
   return (
@@ -32,6 +53,7 @@ export default function StudentForm() {
         value={form.nis}
         onChange={handleChange}
         className="w-full border p-2 rounded"
+        required
       />
       <input
         name="nama"
@@ -39,11 +61,26 @@ export default function StudentForm() {
         value={form.nama}
         onChange={handleChange}
         className="w-full border p-2 rounded"
+        required
       />
       <input
         name="kelas"
         placeholder="Kelas"
         value={form.kelas}
+        onChange={handleChange}
+        className="w-full border p-2 rounded"
+      />
+      <input
+        name="alamat"
+        placeholder="Alamat"
+        value={form.alamat}
+        onChange={handleChange}
+        className="w-full border p-2 rounded"
+      />
+      <input
+        name="telepon"
+        placeholder="Telepon"
+        value={form.telepon}
         onChange={handleChange}
         className="w-full border p-2 rounded"
       />
