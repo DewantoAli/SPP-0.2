@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbx8uiM0F-WhrOy1Lu6rIt9vF9QkQvfAj-JXLS55zq5iL5VyvVOv9QVRMjiiuGkabTxz/exec";
+  "https://script.google.com/macros/s/AKfycbyDIvkwAdyZaYkrCZzTrRkwRhlRrjwFpwPmlp5-2EDtQuIZMS7IhYlgQC4O5imWazqU/exec";
 
 export default function PaymentForm() {
   const [form, setForm] = useState({
