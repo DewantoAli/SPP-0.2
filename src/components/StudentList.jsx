@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbxjC_ptZXW5PUeMZ8mbvPkQobEQzDrLEr4UgkW77UpmjTzBgs9qhPpR_It4BLUfdLmZ/exec";
+  "https://script.google.com/macros/s/AKfycbwIGe8XEdh0jcmpEC1yVj_aWDYHKEsMfTnfjEwF9NwJ3utqNLPtE12lAycAPSEG0HKD/exec";
 
 export default function StudentList() {
   const [students, setStudents] = useState([]);
